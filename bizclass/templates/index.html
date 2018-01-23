@@ -1,0 +1,13 @@
+<!-- this next line allow us to insert this code into the -->
+<!-- 'content' block are in base.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hello there, {{ user.username }} from {{user.group}}!</h1>
+    <br>
+    <h3>Latest message log</h3>
+    {% for posts in posts %}
+    <div><p>{{posts.author.username}} says: <b>{{ posts.body }}</b></p></div>
+    {% endfor %}
+{% endblock %}

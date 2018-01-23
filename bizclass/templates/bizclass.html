@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Note that is action set to "" (blank) then URL in in address bar is used -->
+    <form action="" method="post">
+    {{ form.hidden_tag()}}
+    <!-- note that this protects from CSRF attack, need SECRET_KEY set though -->
+   <div class="header">
+   <h1>IT Architecture</h1>
+   <p>Empowering the business through technology</p>
+   <img src="cloud_blueprint.jpg" width="200" height="150"
+   alt="Cloud Blueprint" longdesc="peter.html">
+   </div>
+
+   <div class="sub.header">
+   <h1>Business Class Modeling</h1>
+   </div>
+
+   <!-- if you've got cached flash messages process them, they then flush -->
+   {% with messages = get_flashed_messages() %}
+   {% if messages %}
+   <ul>
+     {% for message in messages %}
+     <li>{{ message }}</li>
+     {% endfor %}
+   </ul>
+   {% endif %}
+   {% endwith %}
+
+    <!-- Main content -->
+
+    <div class="row">
+      <div class="column">
+        <!-- Note that is action set to "" (blank) then URL in in address bar is used -->
+        <form action="" method="post">
+          {{ form.hidden_tag()}}
+          <!-- note that this protects from CSRF attack, need SECRET_KEY set though -->
+          <p>
+            {{form.application.label}}
+            {{form.application(size=32)}}
+            {% for error in form.application.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+          <p>
+            {{form.q1.label}}<br>
+            {{form.q1}}
+          </p>
+          <p>
+            {{form.q2.label}}<br>
+            {{form.q2}}
+          </p>
+          <p>
+            {{form.q3.label}}<br>
+            {{form.q3}}
+          </p>
+          <p>
+            {{form.q4.label}}<br>
+            {{form.q4}}
+          </p>
+          <p>
+            {{form.q5.label}}<br>
+            {{form.q5}}
+          </p>
+          <p>
+            {{form.q6.label}}<br>
+            {{form.q6}}
+          </p>
+          <p>
+            {{form.q7.label}}<br>
+            {{form.q7}}
+          </p>
+          <p>
+            {{form.q8.label}}<br>
+            {{form.q8}}
+          </p>
+          <p>
+            {{form.q9.label}}<br>
+            {{form.q9}}
+          </p>
+          <p>
+            {{form.q10.label}}<br>
+            {{form.q10}}
+          </p>
+          <p>
+            {{form.q11.label}}<br>
+            {{form.q11}}
+          </p>
+          <p>
+            {{form.q12.label}}<br>
+            {{form.q12}}
+          </p>
+          <p>
+            {{form.q13.label}}<br>
+            {{form.q13}}
+          </p>
+          <p>
+            {{form.q14.label}}<br>
+            {{form.q14}}
+          </p>
+          <p>
+            {{form.q15.label}}<br>
+            {{form.q15}}
+          </p>
+          <p>
+            {{form.q16.label}}<br>
+            {{form.q16}}
+          </p>
+          <p>{{form.remember_me()}} {{form.remember_me.label}}</p>
+          <p>{{form.submit()}}</p>
+        </form>
+      </div>
+      <div class="column middle">
+        <h2>Guide</h2>
+        <p>Place guide info in here about how this works. Include weighting, etc</p>
+      </div>
+    </div>
+
+
+
+    <hr>
+
+{% endblock %}
